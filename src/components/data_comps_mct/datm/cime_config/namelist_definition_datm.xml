@@ -193,6 +193,7 @@
       <value datm_mode="CLM1PT">CLM1PT.$ATM_GRID</value>
       <value datm_mode="CLMCRUNCEP$">CLMCRUNCEP.Solar,CLMCRUNCEP.Precip,CLMCRUNCEP.TPQW</value>
       <value datm_mode="CLMCRUNCEPv7">CLMCRUNCEPv7.Solar,CLMCRUNCEPv7.Precip,CLMCRUNCEPv7.TPQW</value>
+      <value datm_mode="COSMOREA6">COSMOREA6.Solar,COSMOREA6.Precip,COSMOREA6.TPQW</value>
       <value datm_mode="CLMGSWP3v1">CLMGSWP3v1.Solar,CLMGSWP3v1.Precip,CLMGSWP3v1.TPQW</value>
       <value datm_mode="CLMNLDAS2">CLMNLDAS2.Solar,CLMNLDAS2.Precip,CLMNLDAS2.TPQW</value>
       <value datm_mode="CORE2_NYF" >CORE2_NYF.GISS,CORE2_NYF.GXGXS,CORE2_NYF.NCEP</value>
@@ -212,6 +213,7 @@
     <values>
       <value>null</value>
       <value stream="CLM1PT.1x1">$DIN_LOC_ROOT/atm/datm7/domain.clm</value>
+      <value stream="COSMOREA6">/cluster/shared/noresm/inputdata_emerald/atm/datm7/cosmorea6_nor_norge</value>
       <value stream="CLM1PT.CLM_USRDAT">$ATM_DOMAIN_PATH</value>
       <value stream="CPLHISTForcing">null</value>
       <value stream="CLM_QIAN">$DIN_LOC_ROOT/atm/datm7</value>
@@ -272,6 +274,7 @@
       <value stream="CLM1PT.1x1_mexicocityMEX">domain.lnd.1x1pt-mexicocityMEX_navy.090715.nc</value>
       <value stream="CLM1PT.1x1_vancouverCAN">domain.lnd.1x1pt-vancouverCAN_navy.090715.nc </value>
       <value stream="CLM1PT.1x1_urbanc_alpha">domain.lnd.1x1pt-urbanc_alpha_navy.090715.nc </value>
+      <value stream="COSMOREA6">domain.ocn.6x6_lkm_6x6_okm.200821.nc</value>
       <value stream="CLM1PT.CLM_USRDAT">$ATM_DOMAIN_FILE</value>
       <value stream="CPLHISTForcing">null</value>
       <value stream="CLM_QIAN\.">domain.T62.050609.nc</value>
@@ -415,6 +418,9 @@
     <desc>Stream data file directory.</desc>
     <values>
       <value>null</value>
+      <value stream="COSMOREA6.Solar">/cluster/shared/noresm/inputdata_emerald/atm/datm7/cosmorea6_nor_norge/Solar</value>
+      <value stream="COSMOREA6.Precip">/cluster/shared/noresm/inputdata_emerald/atm/datm7/cosmorea6_nor_norge/Precip</value>
+      <value stream="COSMOREA6.TPQW">/cluster/shared/noresm/inputdata_emerald/atm/datm7/cosmorea6_nor_norge/TPHWL</value>
       <value stream="CLM1PT.1x1_mexicocityMEX">$DIN_LOC_ROOT/atm/datm7/CLM1PT_data/mexicocityMEX.c080124</value>
       <value stream="CLM1PT.1x1_vancouverCAN">$DIN_LOC_ROOT/atm/datm7/CLM1PT_data/vancouverCAN.c080124 </value>
       <value stream="CLM1PT.1x1_urbanc_alpha">$DIN_LOC_ROOT/atm/datm7/CLM1PT_data/urbanc_alpha.c080416 </value>
@@ -489,6 +495,9 @@
         clm1pt-0002-11.nc
       </value>
       <value  stream="CLM1PT.CLM_USRDAT">%ym.nc</value>
+      <value  stream="COSMOREA6.Solar">clmforc.COSMOREA6.Solr.%ym.nc</value>
+      <value  stream="COSMOREA6.Precip">clmforc.COSMOREA6.Prec.%ym.nc</value>
+      <value  stream="COSMOREA6.TPQW">clmforc.COSMOREA6.TPQWL.%ym.nc</value>
       <value  stream="CPLHISTForcing.Solar">$DATM_CPLHIST_CASE.cpl.ha2x1hi.%ym.nc</value>
       <value  stream="CPLHISTForcing.nonSolarFlux">$DATM_CPLHIST_CASE.cpl.ha2x3h.%ym.nc</value>
       <value  stream="CPLHISTForcing.State3hr">$DATM_CPLHIST_CASE.cpl.ha2x3h.%ym.nc</value>
@@ -2366,6 +2375,24 @@
         PSRF     pbot
         FLDS     lwdn
       </value>
+      <value  stream="COSMOREA6.Solar">
+        SWDIFDS_RAD swdndf
+        SWDIRS_RAD swdndr
+      </value>
+      <value  stream="COSMOREA6.Precip">
+        RAIN_CON rainc
+        RAIN_GSP rainl
+        SNOW_CON snowc
+        SNOW_GSP snowl
+        PRECIPmms precn
+      </value>
+      <value  stream="COSMOREA6.TPQW">
+        T     tbot
+        Q     shum
+        PS    pbot
+        WIND  wind
+        FLDS     lwdn
+      </value>
       <value  stream="CLMNLDAS2.Solar">
         FSDS swdn
       </value>
@@ -2573,6 +2600,7 @@
     <values>
       <value>-999</value>
       <value stream="CLM1PT">$DATM_CLMNCEP_YR_ALIGN</value>
+      <value stream="COSMOREA6">$DATM_CLMNCEP_YR_ALIGN</value>
       <value stream="CPLHISTForcing">$DATM_CPLHIST_YR_ALIGN</value>
       <value stream="CLM_QIAN">$DATM_CLMNCEP_YR_ALIGN</value>
       <value stream="CLMCRUNCEP">$DATM_CLMNCEP_YR_ALIGN</value>
@@ -2623,6 +2651,7 @@
       <value stream="CLMGSWP3">$DATM_CLMNCEP_YR_START</value>
       <value stream="CLMNLDAS2">$DATM_CLMNCEP_YR_START</value>
       <value stream="CORE2_NYF">1</value>
+      <value stream="COSMOREA6">$DATM_CLMNCEP_YR_START</value>
       <value stream="CORE2_IAF.NCEP.DENS.SOFS">2010</value>
       <value stream="CORE2_IAF.NCEP.PSLV.SOFS">2010</value>
       <value stream="CORE2_IAF.PREC.SOFS.DAILY">2010</value>
@@ -2686,6 +2715,7 @@
       <value stream="CLMGSWP3">$DATM_CLMNCEP_YR_END  </value>
       <value stream="CLMNLDAS2">$DATM_CLMNCEP_YR_END  </value>
       <value stream="CORE2_NYF">1</value>
+      <value stream="COSMOREA6">$DATM_CLMNCEP_YR_END  </value>
       <value stream="CORE2_IAF.NCEP.DENS.SOFS">2011</value>
       <value stream="CORE2_IAF.NCEP.PSLV.SOFS">2011</value>
       <value stream="CORE2_IAF.PREC.SOFS.DAILY">2011</value>
@@ -2742,6 +2772,9 @@
     <desc>Stream offset.</desc>
     <values>
       <value>0</value>
+      <value stream="COSMOREA6.Solar">0</value>
+      <value stream="COSMOREA6.Precip">1800</value>
+      <value stream="COSMOREA6.TPQW">0</value>
       <value stream="CORE_IAF_JRA.*.GISS.SWDN">-5400</value>
       <value stream="CPLHISTForcing.Solar">2700</value>
       <value stream="CPLHISTForcing.nonSolarFlux">900</value>
@@ -2813,6 +2846,7 @@
     <values>
       <value>NULL</value>
       <value datm_mode="CLM">CLMNCEP</value>
+      <value datm_mode="COSMOREA6">CLMNCEP</value>
       <value datm_mode="CORE2_NYF">CORE2_NYF</value>
       <value datm_mode="CORE2_IAF">CORE2_IAF</value>
       <value datm_mode="CORE_IAF_JRA.*">CORE_IAF_JRA</value>
@@ -2928,6 +2962,7 @@
     <values>
       <value>bilinear</value>
       <value datm_mode="CLM1PT">nn</value>
+      <value datm_mode="COSMOREA6">nn</value>
       <value stream="CLMCRUNCEP" atm_grid="hcru">copy</value>
       <value stream="CLMGSWP3" atm_grid="hcru">copy</value>
       <value stream="CLMNLDAS2" atm_grid="0.125nldas2">copy</value>
@@ -3004,6 +3039,8 @@
       <value stream="CLMGSWP3v1.Precip">nearest</value>
       <value stream="CLMNLDAS2.Solar">coszen</value>
       <value stream="CLMNLDAS2.Precip">nearest</value>
+      <value stream="COSMOREA6.Solar">coszen</value>
+      <value stream="COSMOREA6.Precip">nearest</value>
       <value stream="BC.CRUNCEP.GPCP.Precip">nearest</value>
       <value stream="BC.CRUNCEP.CMAP.Precip">nearest</value>
       <value stream="Anomaly.Forcing.Precip">nearest</value>
