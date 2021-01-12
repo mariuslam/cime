@@ -1,0 +1,18 @@
+&clm_inparm
+  fsurdat='/cluster/shared/noresm/inputdata_emerald/marlam/create_data_tinynorge/surfdata_0.05x0.05_Norge_simyr2005.nc' 
+  fates_paramfile = '/cluster/home/marlam/single_cell_experiment/Running_scripts/param_fixed_biogeog.nc'
+  use_bedrock= .false.
+  hist_mfilt=10  
+  use_fates_planthydro = .true.
+  hist_nhtfrq=-12
+  create_crop_landunit= .true.
+/
+&ndepdyn_nml
+  ndepmapalgo = 'nn'
+/
+&popd_streams
+  popdensmapalgo = 'nn'
+/
+&light_streams
+  lightngmapalgo = 'nn'
+/

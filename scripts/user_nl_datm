@@ -1,0 +1,12 @@
+&shr_strdata_nml
+   vectors = 'null'
+   mapmask        = 'nomask','nomask','nomask','nomask','nomask'
+   mapalgo        = 'nn','nn','nn','nn','nn'
+   tintalgo       = 'coszen','nearest','linear','linear','lower'
+   taxmode        = 'cycle','cycle','cycle','extend','extend'
+   streams        = 'datm.streams.txt.COSMOREA6.Solar 2000 2000 2000',
+                    'datm.streams.txt.COSMOREA6.Precip 2000 2000 2000',
+                    'datm.streams.txt.COSMOREA6.TPQW 2000 2000 2000',
+                    'datm.streams.txt.presaero.clim_2000 2000 2000 2000',
+                    'datm.streams.txt.topo.observed 1 1 1'
+/
