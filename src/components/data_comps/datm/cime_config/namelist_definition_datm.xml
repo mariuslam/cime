@@ -185,7 +185,8 @@
     <values>
       <value datm_mode="CLM_QIAN$">CLM_QIAN.Solar,CLM_QIAN.Precip,CLM_QIAN.TPQW</value>
       <value datm_mode="CLM_QIAN_WISO">CLM_QIAN_WISO.Solar,CLM_QIAN_WISO.Precip,CLM_QIAN_WISO.TPQW</value>
-      <value datm_mode="CLM1PT">CLM1PT.$ATM_GRID</value>
+      <value datm_mode="CLM1PT">CLM1PT.$ATM_GRID.prec,CLM1PT.$ATM_GRID.solar,CLM1PT.$ATM_GRID.rest</value>
+      <value datm_mode="CLM1PT_ERA_LAND">CLM1PT_ERA_LAND.solar,CLM1PT_ERA_LAND.prec,CLM1PT_ERA_LAND.rest</value>
       <value datm_mode="CLMCRUNCEP$">CLMCRUNCEP.Solar,CLMCRUNCEP.Precip,CLMCRUNCEP.TPQW</value>
       <value datm_mode="CLMCRUNCEPv7">CLMCRUNCEPv7.Solar,CLMCRUNCEPv7.Precip,CLMCRUNCEPv7.TPQW</value>
       <value datm_mode="CLMGSWP3v1">CLMGSWP3v1.Solar,CLMGSWP3v1.Precip,CLMGSWP3v1.TPQW</value>
@@ -206,6 +207,7 @@
       <value>null</value>
       <value stream="CLM1PT.1x1">$DIN_LOC_ROOT/atm/datm7/domain.clm</value>
       <value stream="CLM1PT.CLM_USRDAT">$ATM_DOMAIN_PATH</value>
+      <value stream="CLM1PT_ERA_LAND">$ATM_DOMAIN_PATH</value>
       <value stream="CPLHISTForcing">null</value>
       <value stream="CLM_QIAN">$DIN_LOC_ROOT/atm/datm7</value>
       <value stream="CLMCRUNCEPv7">$DIN_LOC_ROOT_CLMFORC/atm_forcing.datm7.cruncep_qianFill.0.5d.v7.c160715</value>
@@ -273,6 +275,7 @@
       <value stream="CLM1PT.1x1_vancouverCAN">domain.lnd.1x1pt-vancouverCAN_navy.090715.nc </value>
       <value stream="CLM1PT.1x1_urbanc_alpha">domain.lnd.1x1pt-urbanc_alpha_navy.090715.nc </value>
       <value stream="CLM1PT.CLM_USRDAT">$ATM_DOMAIN_FILE</value>
+      <value stream="CLM1PT_ERA_LAND">$ATM_DOMAIN_FILE</value>
       <value stream="CPLHISTForcing">null</value>
       <value stream="CLM_QIAN\.">domain.T62.050609.nc</value>
       <value stream="CLM_QIAN_WISO">domain.T62.050609.nc</value>
@@ -423,6 +426,9 @@
       <value stream="CLM1PT.1x1_vancouverCAN">$DIN_LOC_ROOT/atm/datm7/CLM1PT_data/vancouverCAN.c080124 </value>
       <value stream="CLM1PT.1x1_urbanc_alpha">$DIN_LOC_ROOT/atm/datm7/CLM1PT_data/urbanc_alpha.c080416 </value>
       <value stream="CLM1PT.CLM_USRDAT">$DIN_LOC_ROOT_CLMFORC/$CLM_USRDAT_NAME/CLM1PT_data</value>
+      <value stream="CLM1PT_ERA_LAND.solar">$DIN_LOC_ROOT_CLMFORC/$CLM_USRDAT_NAME/CLM1PT_data</value>
+      <value stream="CLM1PT_ERA_LAND.prec">$DIN_LOC_ROOT_CLMFORC/$CLM_USRDAT_NAME/CLM1PT_data</value>
+      <value stream="CLM1PT_ERA_LAND.rest">$DIN_LOC_ROOT_CLMFORC/$CLM_USRDAT_NAME/CLM1PT_data</value>
       <value stream="CPLHISTForcing">$DATM_CPLHIST_DIR</value>
       <value stream="CLM_QIAN.Solar">$DIN_LOC_ROOT/atm/datm7/atm_forcing.datm7.Qian.T62.c080727/Solar6Hrly</value>
       <value stream="CLM_QIAN.Precip">$DIN_LOC_ROOT/atm/datm7/atm_forcing.datm7.Qian.T62.c080727/Precip6Hrly</value>
@@ -497,6 +503,9 @@
         clm1pt-0002-11.nc
       </value>
       <value  stream="CLM1PT.CLM_USRDAT">%ym.nc</value>
+      <value  stream="CLM1PT_ERA_LAND.solar">%ym.nc</value>
+      <value  stream="CLM1PT_ERA_LAND.prec">%ym.nc</value>
+      <value  stream="CLM1PT_ERA_LAND.rest">%ym.nc</value>
       <value  stream="CPLHISTForcing.Solar">$DATM_CPLHIST_CASE.cpl.ha2x1hi.%ym.nc</value>
       <value  stream="CPLHISTForcing.nonSolarFlux">$DATM_CPLHIST_CASE.cpl.ha2x3h.%ym.nc</value>
       <value  stream="CPLHISTForcing.State3hr">$DATM_CPLHIST_CASE.cpl.ha2x3h.%ym.nc</value>
@@ -1779,15 +1788,31 @@
         PSRF     pbot
         FLDS     lwdn
       </value>
-      <value  stream="CLM1PT.CLM_USRDAT">
-        ZBOT     z
-        TBOT     tbot
-        RH       rh
-        WIND     wind
+      <value  stream="CLM1PT.CLM_USRDAT.prec">
         PRECTmms precn
+      </value>
+      <value  stream="CLM1PT.CLM_USRDAT.solar">
         FSDS     swdn
+      </value>
+      <value  stream="CLM1PT.CLM_USRDAT.rest">
+        TBOT     tbot
+        TDEW     tdew
+        WIND     wind
         PSRF     pbot
+	FLDS     lwdn
+      </value>
+      <value  stream="CLM1PT_ERA_LAND.prec">
+        PRECTmms precn
+      </value>
+      <value  stream="CLM1PT_ERA_LAND.solar">
+        FSDS     swdn
         FLDS     lwdn
+      </value>
+      <value  stream="CLM1PT_ERA_LAND.rest">
+        TBOT     tbot
+        TDEW     tdew
+        WIND     wind
+        PSRF     pbot
       </value>
       <value stream="CPLHISTForcing.Solar">
         a2x1hi_Faxa_swndr swndr
@@ -2072,6 +2097,7 @@
     <values>
       <value>-999</value>
       <value stream="CLM1PT">$DATM_CLMNCEP_YR_ALIGN</value>
+      <value stream="CLM1PT_ERA_LAND">$DATM_CLMNCEP_YR_ALIGN</value>
       <value stream="CPLHISTForcing">$DATM_CPLHIST_YR_ALIGN</value>
       <value stream="CLM_QIAN">$DATM_CLMNCEP_YR_ALIGN</value>
       <value stream="CLMCRUNCEP">$DATM_CLMNCEP_YR_ALIGN</value>
@@ -2112,6 +2138,7 @@
       <value stream="CLM1PT.1x1_vancouverCAN">1992</value>
       <value stream="CLM1PT.1x1_urbanc_alpha">0001</value>
       <value stream="CLM1PT.CLM_USRDAT">$DATM_CLMNCEP_YR_START</value>
+      <value stream="CLM1PT_ERA_LAND">$DATM_CLMNCEP_YR_START</value>
       <value stream="CPLHISTForcing">$DATM_CPLHIST_YR_START</value>
       <value stream="CLM_QIAN_WISO">2000</value>
       <value stream="CLM_QIAN">$DATM_CLMNCEP_YR_START</value>
@@ -2178,6 +2205,7 @@
       <value stream="CLM1PT.1x1_vancouverCAN">1992</value>
       <value stream="CLM1PT.1x1_urbanc_alpha">0002</value>
       <value stream="CLM1PT.CLM_USRDAT">$DATM_CLMNCEP_YR_END</value>
+      <value stream="CLM1PT_ERA_LAND">$DATM_CLMNCEP_YR_END</value>
       <value stream="CPLHISTForcing">$DATM_CPLHIST_YR_END</value>
       <value stream="CLM_QIAN_WISO">2004  </value>
       <value stream="CLM_QIAN">$DATM_CLMNCEP_YR_END  </value>
@@ -2241,6 +2269,8 @@
     <desc>Stream offset.</desc>
     <values>
       <value>0</value>
+      <value stream="CLM1PT.$ATM_GRID.rest">5400</value>
+      <value stream="CLM1PT.$ATM_GRID.prec">5400</value>
       <value stream="CORE_IAF_JRA.GISS.SWDN">-5400</value>
       <value stream="CPLHISTForcing.Solar">2700</value>
       <value stream="CPLHISTForcing.nonSolarFlux">900</value>
@@ -2427,6 +2457,7 @@
     <values>
       <value>bilinear</value>
       <value datm_mode="CLM1PT">nn</value>
+      <value datm_mode="CLM1PT_ERA_LAND">nn</value>
       <value stream="CLMCRUNCEP" atm_grid="hcru">copy</value>
       <value stream="CLMGSWP3" atm_grid="hcru">copy</value>
       <value stream="co2tseries">nn</value>
@@ -2484,6 +2515,9 @@
       <value stream="CLM1PT.1x1_vancouverCAN">nearest</value>
       <value stream="CLM1PT.1x1_urbanc_alpha">nearest</value>
       <value stream="CLM1PT.CLM_USRDAT">nearest</value>
+      <value stream="CLM1PT.$ATM_GRID.solar">coszen</value>
+      <value stream="CLM1PT.$ATM_GRID.prec">nearest</value>
+      <value stream="CLM1PT.$ATM_GRID.rest">linear</value>
       <value stream="CPLHISTForcing.Solar">nearest</value>
       <value stream="CPLHISTForcing.nonSolarFlux">nearest</value>
       <value stream="CPLHISTForcing.State3hr">linear</value>
@@ -2541,6 +2575,7 @@
       <value stream="co2tseries.SSP">extend</value>
       <value stream="presaero.cesm2_omip">limit</value>
       <value datm_mode="CLM1PT">extend</value>
+      <value datm_mode="CLM1PT_ERA_LAND">extend</value>
       <value atm_grid="CLM_USRDAT">cycle</value>
     </values>
   </entry>
